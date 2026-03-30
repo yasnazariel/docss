@@ -533,6 +533,11 @@
           {
             "group": "Setup",
             "pages": [
+              "ai-agents/guides/agent-builder-codes",
+              "ai-agents/guides/x402-payments",
+              "ai-agents/guides/register-and-sign-in-your-agent",
+              "ai-agents/guides/agent-app",
+              "ai-agents/guides/trading",
               "ai-agents/setup/wallet-setup",
               "ai-agents/setup/agent-registration"
             ]

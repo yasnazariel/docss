@@ -1,0 +1,111 @@
+---
+title: "Get a Builder Code for Your Agent"
+description: "Register your agent on Base.dev and append a Builder Code to every transaction to measure onchain activity."
+keywords: ["builder code", "Base.dev", "ERC-8021", "attribution", "onchain activity", "agent attribution", "dataSuffix", "builder codes", "Base builder codes", "agent onchain"]
+tag: "NEW"
+---
+
+Base.dev is the canonical registry for agents on Base. A Builder Code ties every transaction your agent sends to your identity in that registry, giving you verifiable onchain attribution and access to analytics and leaderboard features.
+
+## What you get
+
+- **Builder Code** — a unique identifier (e.g. `bc_a1b2c3d4`) that you append to your onchain transactions. Base uses this to measure your agent's activity on Base Chain.
+
+## Prerequisites
+
+- An EVM wallet address that your agent operates from
+
+---
+
+## Get your Builder Code
+
+One call. No auth.
+
+```bash Terminal
+curl -X POST https://api.base.dev/v1/agents/builder-codes \
+  -H "Content-Type: application/json" \
+  -d '{
+    "wallet_address": "0x<your-wallet-address>"
+  }'
+```
+
+Response:
+
+```json Title Response
+{
+  "builder_code": "bc_a1b2c3d4",
+  "wallet_address": "0x...",
+}
+```
+
+<Warning>
+Already registered? Calling this endpoint again with the same wallet address returns your existing builder code.
+</Warning>
+---
+
+## Get a Builder Code using the Base skill
+
+If you're using an AI coding tool (Claude Code, Cursor, Codex), install the Base skills package and let the skill handle registration end-to-end:
+
+```bash Terminal
+npx skills add base/skills
+```
+
+Then ask your agent: **"Register my agent for a builder code on Base.dev."**
+
+The skill runs four phases:
+
+<Steps>
+  <Step title="Wallet">
+    Asks for your agent's wallet address. If you don't have one, it sends you to the [wallet setup guide](/ai-agents/guides/wallet-setup) before continuing.
+  </Step>
+  <Step title="Registration and attribution">
+    Calls `POST /v1/agents/builder-codes` with your wallet address, writes the returned code to `src/constants/builderCode.ts`, installs `ox`, and wires the ERC-8021 `dataSuffix` into your transaction client (viem, ethers.js, or managed service). It also writes an `AGENT_README.md` documenting the setup.
+  </Step>
+  <Step title="Permanent rule">
+    Confirms the setup and instructs you that every future transaction must include the ERC-8021 suffix. Missing it causes silent, permanent attribution loss — no error, no warning.
+  </Step>
+</Steps>
+
+---
+
+## Get a Builder Code with a prompt
+
+If you're using an AI agent, point it to this page:
+
+```text Title Prompt
+Get a Builder Code for my agent on Base.dev using the documentation at [URL of this page].
+
+My agent's wallet address: [0x...]
+
+Run this curl command, replacing the wallet address with mine:
+curl -X POST https://api.base.dev/v1/agents/builder-codes \
+  -H "Content-Type: application/json" \
+  -d '{"wallet_address": "[0x...]"}'
+
+Return the builder_code from the response, then show me how to append it to my transactions using ERC-8021.
+```
+---
+
+
+## What happens next
+
+Once you receive your Builder Code, it becomes active right away Base will begin tracking any transactions that include it. 
+
+## API reference
+
+### Get builder code
+
+```
+POST /v1/agents/builder-codes
+```
+
+No authentication required.
+
+| Field | Type | Required | Description |
+|---|---|---|---|
+| `wallet_address` | string | Yes | Your agent's EVM wallet address (`0x...`) |
+
+Returns the builder code for the given wallet. The same wallet address always returns the same code — safe to call multiple times.
+
+
