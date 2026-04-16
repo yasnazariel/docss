@@ -9,21 +9,14 @@
   },
   "favicon": "/logo/favicon.png",
   "contextual": {
-    "options": [
-      "copy",
-      "view",
-      "claude",
-      "chatgpt"
-    ]
+    "options": ["copy", "view", "claude", "chatgpt"]
   },
   "api": {
     "playground": {
       "display": "simple"
     },
     "examples": {
-      "languages": [
-        "javascript"
-      ]
+      "languages": ["javascript"]
     }
   },
   "seo": {
@@ -39,9 +32,7 @@
         "groups": [
           {
             "group": "Introduction",
-            "pages": [
-              "get-started/base"
-            ]
+            "pages": ["get-started/base"]
           },
           {
             "group": "Quickstart",
@@ -255,9 +246,7 @@
         "groups": [
           {
             "group": "Introduction",
-            "pages": [
-              "base-account/overview/what-is-base-account"
-            ]
+            "pages": ["base-account/overview/what-is-base-account"]
           },
           {
             "group": "Quickstart",
@@ -493,9 +482,7 @@
         "groups": [
           {
             "group": "Overview",
-            "pages": [
-              "ai-agents/index"
-            ]
+            "pages": ["ai-agents/index"]
           },
           {
             "group": "Quickstart",
@@ -569,15 +556,11 @@
           },
           {
             "group": "Growth",
-            "pages": [
-              "apps/growth/rewards"
-            ]
+            "pages": ["apps/growth/rewards"]
           },
           {
             "group": "Notifications",
-            "pages": [
-              "apps/technical-guides/base-notifications"
-            ]
+            "pages": ["apps/technical-guides/base-notifications"]
           },
           {
             "group": "Builder Codes",
@@ -595,9 +578,7 @@
         "groups": [
           {
             "group": "Getting Started",
-            "pages": [
-              "onchainkit/migrate-from-onchainkit"
-            ]
+            "pages": ["onchainkit/migrate-from-onchainkit"]
           }
         ]
       }
