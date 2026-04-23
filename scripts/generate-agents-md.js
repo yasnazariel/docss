@@ -39,7 +39,7 @@ function scanDocs(dir, basePath = '', ignored = { dirs: new Set(), files: new Se
 
   if (files.length > 0 && !ignored.dirs.has(basePath)) {
     const key = (basePath || 'root')
-      .replace(/(^|\/)\d+-/g, '$1') // safer numeric prefix removal
+      .replace(/(^|\/)\d+-/g, '$1')
       .replace(/^\/+/, '');
 
     if (!index[key]) {
