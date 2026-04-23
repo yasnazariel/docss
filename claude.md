@@ -1,34 +1,54 @@
 # Base Documentation
 
-Technical documentation for Base (Ethereum L2). Built with Mintlify.
+Technical documentation for Base (Ethereum L2), built with Mintlify.  
+This repository contains guides, references, and examples to help you build on Base.
+
+---
+
+## Getting Started
+
+To run the documentation locally:
+
+```bash
+npm install
+npx mintlify dev
+```
+
+Make sure you have Mintlify available in your environment.
+
+---
 
 ## Commands
 
 | Command | Description |
 |---------|-------------|
-| `mintlify dev` | Local dev server |
-| `/lint` | Lint MDX files and fix issues |
-| `/doc-feedback` | Review content quality |
+| `mintlify dev` | Start a local development server for previewing docs |
+| `/lint` | Lint MDX files and fix formatting/content issues |
+| `/doc-feedback` | Review content quality and clarity |
 | `/agents` | Generate AGENTS.md index for AI agents |
+
+---
 
 ## Structure
 
-```
+```bash
 docs/
-├── get-started/      # Intro, quickstarts
-├── base-chain/       # Network, nodes, tools
-├── base-account/     # Smart Wallet SDK
-├── ai-agents/        # Agent development
-├── apps/             # Apps on Base (MiniKit, guides)
-├── onchainkit/       # React components (versioned)
-├── images/           # Assets by topic
-├── snippets/         # Reusable MDX components
-└── docs.json         # Navigation config
+├── get-started/
+├── base-chain/
+├── base-account/
+├── ai-agents/
+├── apps/
+├── onchainkit/
+├── images/
+├── snippets/
+└── docs.json
 ```
+
+---
 
 ## Content Rules
 
-**Frontmatter** (required):
+**Frontmatter (required):**
 ```yaml
 ---
 title: "Keyword-rich title"
@@ -36,29 +56,24 @@ description: "Value description"
 ---
 ```
 
-**Writing**: American English, sentence case headings, second person ("you"), active voice.
+**Writing guidelines:**
+- Use American English
+- Use sentence case for headings
+- Write in second person ("you")
+- Prefer active voice
 
-**Code blocks**: Always specify language. Add filename or title. Use `highlight={}` for emphasis.
-
-**Components**: See [mintlify-reference.md](mintlify-reference.md) for syntax.
-
-**Images**: Wrap in `<Frame>`, include `alt` attribute.
+---
 
 ## Navigation
 
-Edit `docs.json` to add/remove pages. Add redirects when removing pages.
+Edit docs.json to add or remove pages.  
+Make sure to add redirects when removing existing pages.
 
-## References
-
-| File | Purpose |
-|------|---------|
-| [content-instructions.md](content-instructions.md) | Writing guidelines |
-| [mintlify-reference.md](mintlify-reference.md) | Component syntax |
-| [scripts/README.md](scripts/README.md) | Linter usage |
+---
 
 ## Before Committing
 
-1. Run `/lint` and fix errors
-2. Run `/agents` if docs structure changed
-3. Add redirects for removed pages
-4. Verify links work
+1. Run /lint and fix any issues
+2. Run /agents if the documentation structure changed
+3. Add redirects for any removed pages
+4. Verify that all links are working correctly
